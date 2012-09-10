@@ -1264,6 +1264,12 @@ module Spreadsheet
       assert_equal :hair, format.left
       assert_equal :brown, format.top_color
     end
+    def test_float_precision
+      path = File.join(@data, 'test_float_precision.xls')
+      book = Spreadsheet.open(path)
+      sheet = book.worksheet 0
+      assert_equal "-1912.167", sheet[0,0].to_s
+    end
 
     private
 
